@@ -1,0 +1,25 @@
+.env
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Generated layers and run artefacts (rebuilt by the pipeline from data/source)
+data/raw/
+data/staging/
+data/curated/
+data/quarantine/
+data/partitioned/
+data/runs/
+data/benchmarks/files/
+data/checkpoints/
+data/tmp/
+outputs/model/model.joblib
+
+logs/
+airflow.db
+airflow-webserver.pid
+.DS_Store
+.idea/
+.vscode/

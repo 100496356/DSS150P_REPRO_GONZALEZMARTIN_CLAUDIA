@@ -1,0 +1,30 @@
+# Non-secret pipeline settings. Paths are relative to the project root.
+project: dss150p_lab4_breast_cancer_repro
+paths:
+  source_file: data/source/breast_cancer_wisconsin.csv
+  raw_dir: data/raw
+  batch_dir: data/raw/batches
+  checkpoint_file: data/checkpoints/ingest_checkpoint.json
+  staging_dir: data/staging
+  curated_dir: data/curated
+  quarantine_dir: data/quarantine
+  partition_dir: data/partitioned
+  runs_dir: data/runs
+  benchmark_dir: data/benchmarks
+  outputs_dir: outputs
+  manifest: metadata/source_manifest.yml
+  contract: metadata/data_contract.yml
+  expected_metrics: metadata/expected_metrics.json
+  split_manifest: metadata/split_manifest.json
+ingestion:
+  batch_count: 4            # deterministic arrival batches by record_id (laboratory simulation)
+model:
+  family: logistic_regression
+  seed: 42
+  test_size: 0.2
+  max_iter: 5000
+  primary_metric: accuracy
+  tolerance: 0.005          # |reproduced - baseline| must be <= tolerance for every tracked metric
+benchmark:
+  repeats: 5
+  partition_column: diagnosis
