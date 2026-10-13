@@ -1,0 +1,18 @@
+dataset_id: breast_cancer_wisconsin_diagnostic
+title: Breast Cancer Wisconsin (Diagnostic) Data Set
+original_source: UCI Machine Learning Repository (Wolberg, Street, Mangasarian, 1995), https://doi.org/10.24432/C5DW2B
+distributed_copy: scikit-learn 1.5.2 sklearn.datasets.load_breast_cancer (exported by scripts/export_source.py)
+license: CC BY 4.0 (redistribution allowed with attribution)
+privacy: de-identified numeric features computed from images; no names or personal identifiers
+file: data/source/breast_cancer_wisconsin.csv
+format: csv
+encoding: utf-8
+delimiter: ","
+header: true
+row_count: 569
+column_count: 32
+file_size_bytes: 123566
+sha256: e4fcbf92dc89d0bda0d8610d6ccba7b8b1e38382a704ce5e7be47a6c93fec24c
+update_frequency: static snapshot (no updates expected)
+key: record_id (stable sequence assigned from the immutable source order)
+target: diagnosis (M = malignant, B = benign)

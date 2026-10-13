@@ -1,0 +1,12 @@
+{
+  "source": "baseline/reference_analysis.py (notebook-style reference analysis, see docs/reproducibility_report.md)",
+  "model_family": "LogisticRegression(max_iter=5000) after StandardScaler",
+  "target": "diagnosis == 'M' (malignant = 1)",
+  "features": "all 30 numeric measurements",
+  "split": "train_test_split(test_size=0.2, stratify=y, random_state=42)",
+  "seed": 42,
+  "test_rows": 114,
+  "primary_metric": "accuracy",
+  "metrics": {"accuracy": 0.9649, "f1": 0.9512, "roc_auc": 0.996},
+  "tolerance": 0.005
+}

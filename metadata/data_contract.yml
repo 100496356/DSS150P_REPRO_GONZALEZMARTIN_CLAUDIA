@@ -1,0 +1,184 @@
+dataset_id: breast_cancer_wisconsin_diagnostic
+version: '1.0'
+source_sha256: e4fcbf92dc89d0bda0d8610d6ccba7b8b1e38382a704ce5e7be47a6c93fec24c
+primary_key: record_id
+target: diagnosis
+columns:
+- name: record_id
+  type: integer
+  nullable: false
+  unique: true
+  min: 1
+- name: mean_radius
+  type: float
+  nullable: false
+  min: 0.0
+- name: mean_texture
+  type: float
+  nullable: false
+  min: 0.0
+- name: mean_perimeter
+  type: float
+  nullable: false
+  min: 0.0
+- name: mean_area
+  type: float
+  nullable: false
+  min: 0.0
+- name: mean_smoothness
+  type: float
+  nullable: false
+  min: 0.0
+- name: mean_compactness
+  type: float
+  nullable: false
+  min: 0.0
+- name: mean_concavity
+  type: float
+  nullable: false
+  min: 0.0
+- name: mean_concave_points
+  type: float
+  nullable: false
+  min: 0.0
+- name: mean_symmetry
+  type: float
+  nullable: false
+  min: 0.0
+- name: mean_fractal_dimension
+  type: float
+  nullable: false
+  min: 0.0
+- name: radius_error
+  type: float
+  nullable: false
+  min: 0.0
+- name: texture_error
+  type: float
+  nullable: false
+  min: 0.0
+- name: perimeter_error
+  type: float
+  nullable: false
+  min: 0.0
+- name: area_error
+  type: float
+  nullable: false
+  min: 0.0
+- name: smoothness_error
+  type: float
+  nullable: false
+  min: 0.0
+- name: compactness_error
+  type: float
+  nullable: false
+  min: 0.0
+- name: concavity_error
+  type: float
+  nullable: false
+  min: 0.0
+- name: concave_points_error
+  type: float
+  nullable: false
+  min: 0.0
+- name: symmetry_error
+  type: float
+  nullable: false
+  min: 0.0
+- name: fractal_dimension_error
+  type: float
+  nullable: false
+  min: 0.0
+- name: worst_radius
+  type: float
+  nullable: false
+  min: 0.0
+- name: worst_texture
+  type: float
+  nullable: false
+  min: 0.0
+- name: worst_perimeter
+  type: float
+  nullable: false
+  min: 0.0
+- name: worst_area
+  type: float
+  nullable: false
+  min: 0.0
+- name: worst_smoothness
+  type: float
+  nullable: false
+  min: 0.0
+- name: worst_compactness
+  type: float
+  nullable: false
+  min: 0.0
+- name: worst_concavity
+  type: float
+  nullable: false
+  min: 0.0
+- name: worst_concave_points
+  type: float
+  nullable: false
+  min: 0.0
+- name: worst_symmetry
+  type: float
+  nullable: false
+  min: 0.0
+- name: worst_fractal_dimension
+  type: float
+  nullable: false
+  min: 0.0
+- name: diagnosis
+  type: string
+  nullable: false
+  allowed:
+  - M
+  - B
+feature_columns:
+- mean_radius
+- mean_texture
+- mean_perimeter
+- mean_area
+- mean_smoothness
+- mean_compactness
+- mean_concavity
+- mean_concave_points
+- mean_symmetry
+- mean_fractal_dimension
+- radius_error
+- texture_error
+- perimeter_error
+- area_error
+- smoothness_error
+- compactness_error
+- concavity_error
+- concave_points_error
+- symmetry_error
+- fractal_dimension_error
+- worst_radius
+- worst_texture
+- worst_perimeter
+- worst_area
+- worst_smoothness
+- worst_compactness
+- worst_concavity
+- worst_concave_points
+- worst_symmetry
+- worst_fractal_dimension
+rules:
+- id: worst_ge_mean_radius
+  description: worst_radius must be >= mean_radius (worst = largest of the 3 largest
+    cells)
+  on_violation: quarantine
+- id: no_negative_measurements
+  description: all measurements >= 0
+  on_violation: quarantine
+on_violation:
+  missing_required_column: fail
+  type_mismatch: fail
+  checksum_mismatch: fail
+  null_in_required_field: quarantine
+  out_of_range_value: quarantine
+  invalid_category: quarantine
+  duplicate_primary_key: keep latest by row_hash, log as duplicate
