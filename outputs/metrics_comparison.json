@@ -1,0 +1,31 @@
+{
+  "primary_metric": "accuracy",
+  "tolerance": 0.005,
+  "metrics": {
+    "accuracy": {
+      "baseline": 0.9649,
+      "reproduced": 0.9649,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+    },
+    "f1": {
+      "baseline": 0.9512,
+      "reproduced": 0.9512,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+    },
+    "roc_auc": {
+      "baseline": 0.996,
+      "reproduced": 0.996,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+    }
+  },
+  "test_rows": {
+    "baseline": 114,
+    "reproduced": 114
+  },
+  "passed": true,
+  "pipeline_run_id": "manual__2026-10-13T14_43_52_00_00",
+  "checked_at_utc": "2026-10-13T14:44:43.135295+00:00"
+}

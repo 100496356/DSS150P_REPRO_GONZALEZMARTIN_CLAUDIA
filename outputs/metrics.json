@@ -1,0 +1,11 @@
+{
+  "pipeline_run_id": "manual__2026-10-13T14_43_52_00_00",
+  "model_version": "logreg_seed42",
+  "test_rows": 114,
+  "metrics": {
+    "accuracy": 0.9649,
+    "f1": 0.9512,
+    "roc_auc": 0.996
+  },
+  "evaluated_at_utc": "2026-10-13T14:44:38.903037+00:00"
+}
